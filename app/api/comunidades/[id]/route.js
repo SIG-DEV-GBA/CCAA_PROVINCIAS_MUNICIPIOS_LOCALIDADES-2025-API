@@ -9,7 +9,8 @@ export async function GET(request, { params }) {
     return NextResponse.json({ error: 'Comunidad no encontrada' }, { status: 404 });
   }
 
-  const provinciasData = provinciasByComunidadId[id] || [];
+  const provinciasData = (provinciasByComunidadId[id] || [])
+    .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 
   return NextResponse.json({
     ...comunidad,

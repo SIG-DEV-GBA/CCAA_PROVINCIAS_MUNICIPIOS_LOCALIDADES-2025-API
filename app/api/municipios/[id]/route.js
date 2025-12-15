@@ -9,7 +9,8 @@ export async function GET(request, { params }) {
     return NextResponse.json({ error: 'Municipio no encontrado' }, { status: 404 });
   }
 
-  const localidadesData = localidadesByMunicipioId[id] || [];
+  const localidadesData = (localidadesByMunicipioId[id] || [])
+    .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 
   return NextResponse.json({
     ...municipio,

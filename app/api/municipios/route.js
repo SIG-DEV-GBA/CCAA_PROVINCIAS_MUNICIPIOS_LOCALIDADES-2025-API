@@ -13,13 +13,14 @@ export async function GET(request) {
     data = municipiosByProvinciaId[provinciaId] || [];
   }
 
-  const total = data.length;
-  data = data.slice(offset, offset + limit);
+  const sorted = [...data].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+  const total = sorted.length;
+  const paginated = sorted.slice(offset, offset + limit);
 
   return NextResponse.json({
     total,
     limit,
     offset,
-    data
+    data: paginated
   });
 }

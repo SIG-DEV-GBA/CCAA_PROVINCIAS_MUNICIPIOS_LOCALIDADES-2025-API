@@ -11,8 +11,10 @@ export async function GET(request) {
     data = provincias.filter(p => p.comunidad_id === parseInt(comunidadId));
   }
 
+  const sorted = [...data].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+
   return NextResponse.json({
-    total: data.length,
-    data
+    total: sorted.length,
+    data: sorted
   });
 }

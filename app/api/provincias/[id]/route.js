@@ -9,7 +9,8 @@ export async function GET(request, { params }) {
     return NextResponse.json({ error: 'Provincia no encontrada' }, { status: 404 });
   }
 
-  const municipiosData = municipiosByProvinciaId[id] || [];
+  const municipiosData = (municipiosByProvinciaId[id] || [])
+    .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 
   return NextResponse.json({
     ...provincia,
