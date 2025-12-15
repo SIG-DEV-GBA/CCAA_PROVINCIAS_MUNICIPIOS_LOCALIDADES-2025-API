@@ -1,0 +1,18 @@
+{
+  "name": "api-ubicaciones-espana",
+  "version": "1.0.0",
+  "description": "API pública de ubicaciones de España (CCAA, provincias, municipios, localidades)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": ["spain", "locations", "api", "municipios", "provincias"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "next": "14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
